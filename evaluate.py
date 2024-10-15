@@ -89,7 +89,7 @@ def parse_args():
     base_args = argparse.ArgumentParser()
     base_args.add_argument('--task_name', type=str, default='scibench')
     base_args.add_argument('--file', type=str, default='thermo_standardized')  # json
-    base_args.add_argument('--propose_method', type=str, choices=['gpt', 'glm', 'llama', 'local'], default='glm')
+    base_args.add_argument('--propose_method', type=str, choices=['gpt', 'glm', 'llama','mistral', 'local'], default='glm')
     base_args.add_argument('--value_method', type=str, choices=['gpt', 'glm', 'local'], default='local')
     base_args.add_argument('--mode', type=str, choices=['cot', 'tot', 'mcts'], default='tot')
     base_args.add_argument('--temperature', type=float, default=0.7)

@@ -2,10 +2,11 @@ from models.model import *
 
 
 # given prompt, generate proposal under instruction, unwrap is required
-def get_proposal(prompt, method='glm', temperature=0.7, max_tokens=2048, seed=170, max_length=2048, truncation=True,
+def get_proposal(prompt, method='llama', temperature=0.7, max_tokens=2048, seed=170, max_length=2048, truncation=True,
                  do_sample=True, max_new_tokens=1024):
     response = []
     cnt = 2
+    print(f"get_proposal: {method}")
     if method == 'glm':
         while not response and cnt:
             response = glm(prompt, BASE_MODEL_GLM, temperature=temperature, max_tokens=max_tokens, seed=seed)
@@ -44,6 +45,7 @@ def get_proposal(prompt, method='glm', temperature=0.7, max_tokens=2048, seed=17
 def get_value(prompt_answer, method='glm', temperature=0.7, max_tokens=1000, seed=170, max_length=2048, low=0, high=1):
     response = []
     cnt = 2
+    print(f"1 ReST-MCTS/models/get_response.py get_value: {method}")
     if method == 'glm':
         while not response and cnt:
             response = glm(prompt_answer, BASE_MODEL_GLM, temperature=temperature, max_tokens=max_tokens, seed=seed)
@@ -53,14 +55,14 @@ def get_value(prompt_answer, method='glm', temperature=0.7, max_tokens=1000, see
             return []
         return response
 
-    elif method == 'gpt':
-        while not response and cnt:
-            response = gpt(prompt_answer, model=BASE_MODEL_GPT, temperature=temperature, max_tokens=max_tokens)
-            cnt -= 1
-        if not response:
-            print(f'获取<{method}>分数失败!\n')
-            return []
-        return response
+    # elif method == 'gpt':
+    #     while not response and cnt:
+    #         response = gpt(prompt_answer, model=BASE_MODEL_GPT, temperature=temperature, max_tokens=max_tokens)
+    #         cnt -= 1
+    #     if not response:
+    #         print(f'获取<{method}>分数失败!\n')
+    #         return []
+    #     return response
 
     elif method == 'local':
         value = low

@@ -1,6 +1,6 @@
 import os
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '6'
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 import torch
 import torch.nn as nn
 from transformers import AutoModel, AutoTokenizer, AutoModelForCausalLM
@@ -74,8 +74,12 @@ def get_value_model(base_model_dir, state_dict_file):
 def get_value_model_mistral(base_model_dir, state_dict_file):
     value_tokenizer = AutoTokenizer.from_pretrained(base_model_dir, trust_remote_code=True)
     # value_tokenizer.pad_token = value_tokenizer.eos_token
+    print(f"1 get_value_model_mistral ")
     value_base_model = AutoModelForCausalLM.from_pretrained(base_model_dir, trust_remote_code=True, torch_dtype=torch.bfloat16)
     if state_dict_file is None:
+        vocab_size = value_base_model.config.vocab_size
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        # VM = Mistral_VM(value_base_model, vocab_size)
         return value_tokenizer, value_base_model
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("device is set to: ", device, '\n')
@@ -107,6 +111,9 @@ def get_value_model_prm_mistral(base_model_dir, state_dict_file):
     # prm_tokenizer.pad_token = prm_tokenizer.eos_token
     prm_base_model = AutoModelForCausalLM.from_pretrained(base_model_dir, trust_remote_code=True, torch_dtype=torch.bfloat16)
     if state_dict_file is None:
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        prm_base_model = prm_base_model.to(device)
+        prm_base_model.eval()
         return prm_tokenizer, prm_base_model
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print("device is set to: ", device, '\n')
@@ -119,6 +126,12 @@ def get_value_model_prm_mistral(base_model_dir, state_dict_file):
 
 # local value model: str->digit in [low, high]
 def get_local_value(prompt_answer, model, tokenizer, max_length=2048, low=0, high=1):
+    # print(f"1 ReST-MCTS/models/value_models.py get_local_value: {model}")
+    print(f"1 ReST-MCTS/models/value_models.py get_local_value: {type(prompt_answer)}")
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    print(f"1.5 ReST-MCTS/models/value_models.py get_local_value device: {device}")
+    model = model.to(device)
+    print(f"2 ReST-MCTS/models/value_models.py get_local_value model.device: {model.device}")
     encoded_pair = tokenizer.encode_plus(
         prompt_answer,
         padding='max_length',
@@ -129,6 +142,12 @@ def get_local_value(prompt_answer, model, tokenizer, max_length=2048, low=0, hig
     input_ids = encoded_pair['input_ids'].to('cuda')
     # print(input_ids)
     attention_mask = encoded_pair['attention_mask'].to('cuda')
-    value = model(input_ids, attention_mask).item()
+    value = model(input_ids, attention_mask)
+    #this is only for the mistral model
+    vocab_size = model.config.vocab_size
+    ln= nn.Linear(vocab_size, 1).to(device)
+    outputs = value.logits[:, -1, :]
+    value = ln(outputs)
+
     value = min(high, max(value, low))
     return value

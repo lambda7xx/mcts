@@ -1,0 +1,396 @@
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  6.42it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  7.84it/s]
+1 get_value_model_mistral 
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  7.00it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  8.19it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  7.98it/s]
+Starting from v4.46, the `logits` model output will have the same type as the model (except at train time, where it will always be FP32)
+api_key:sk-**
+
+<开始新搜索轮次，目前已完成轮次数:0>
+
+----------------------------------------
+选择节点阶段
+
+----------------------------------------
+扩充阶段
+
+
+ ============================== proposal ============================== 
+step:  1
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+基于以上步骤，可能的当前步骤解法是:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+输出步骤过短！
+
+
+ ============================== proposal ============================== 
+step:  1
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+基于以上步骤，可能的当前步骤解法是:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+标准化后新的步骤:Step 1: To solve this problem, we need to determine the number of pieces of popcorn Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+
+
+ ============================== proposal ============================== 
+step:  1
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+基于以上步骤，可能的当前步骤解法是:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+输出步骤过短！
+
+
+ ============================== proposal ============================== 
+step:  1
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+基于以上步骤，可能的当前步骤解法是:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+标准化后新的步骤:Step 1: To solve this problem, we need to determine the number of pieces of popcorn that Garrett has to eat. Let's analyze the given information: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 times the amount in the first 30 seconds = 3 * 20 = 60
+
+
+ ============================== proposal ============================== 
+step:  1
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+基于以上步骤，可能的当前步骤解法是:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+标准化后新的步骤:Step 1: To solve this problem, we need to determine the total number of pieces of popcorn that Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+
+1 ReST-MCTS/MCTS/task.py get_step_value, self.value_method:local
+1 ReST-MCTS/models/get_response.py get_value: local
+1 ReST-MCTS/models/value_models.py get_local_value: <class 'str'>
+1.5 ReST-MCTS/models/value_models.py get_local_value device: cuda
+2 ReST-MCTS/models/value_models.py get_local_value model.device: cuda:0
+获得评分:tensor([[0.8441]], device='cuda:0', grad_fn=<AddmmBackward0>)
+
+1 ReST-MCTS/MCTS/task.py get_step_value, self.value_method:local
+1 ReST-MCTS/models/get_response.py get_value: local
+1 ReST-MCTS/models/value_models.py get_local_value: <class 'str'>
+1.5 ReST-MCTS/models/value_models.py get_local_value device: cuda
+2 ReST-MCTS/models/value_models.py get_local_value model.device: cuda:0
+获得评分:0
+
+1 ReST-MCTS/MCTS/task.py get_step_value, self.value_method:local
+1 ReST-MCTS/models/get_response.py get_value: local
+1 ReST-MCTS/models/value_models.py get_local_value: <class 'str'>
+1.5 ReST-MCTS/models/value_models.py get_local_value device: cuda
+2 ReST-MCTS/models/value_models.py get_local_value model.device: cuda:0
+获得评分:0
+
+----------------------------------------
+模拟搜索阶段
+
+
+ ============================== reflection ============================== 
+step:  2
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+Step 1: To solve this problem, we need to determine the number of pieces of popcorn Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+基于以上步骤给出的意见:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+标准化后的意见: <continue>
+
+
+ ============================== proposal ============================== 
+step:  2
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+Step 1: To solve this problem, we need to determine the number of pieces of popcorn Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+基于以上步骤，可能的当前步骤解法是:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+标准化后新的步骤:Step 2: In the first 30 seconds, 20 kernels popped.
+
+1 ReST-MCTS/MCTS/task.py get_step_value, self.value_method:local
+1 ReST-MCTS/models/get_response.py get_value: local
+1 ReST-MCTS/models/value_models.py get_local_value: <class 'str'>
+1.5 ReST-MCTS/models/value_models.py get_local_value device: cuda
+2 ReST-MCTS/models/value_models.py get_local_value model.device: cuda:0
+获得评分:0
+
+
+ ============================== reflection ============================== 
+step:  3
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+Step 1: To solve this problem, we need to determine the number of pieces of popcorn Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+Step 2: In the first 30 seconds, 20 kernels popped.
+基于以上步骤给出的意见:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+标准化后的意见: <continue>
+
+
+ ============================== proposal ============================== 
+step:  3
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+Step 1: To solve this problem, we need to determine the number of pieces of popcorn Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+Step 2: In the first 30 seconds, 20 kernels popped.
+基于以上步骤，可能的当前步骤解法是:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+输出步骤过短！
+
+
+ ============================== proposal ============================== 
+step:  3
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+Step 1: To solve this problem, we need to determine the number of pieces of popcorn Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+Step 2: In the first 30 seconds, 20 kernels popped.
+基于以上步骤，可能的当前步骤解法是:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+输出步骤过短！
+
+
+ ============================== proposal ============================== 
+step:  3
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+Step 1: To solve this problem, we need to determine the number of pieces of popcorn Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+Step 2: In the first 30 seconds, 20 kernels popped.
+基于以上步骤，可能的当前步骤解法是:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+输出步骤过短！
+
+----------------------------------------
+反向传播阶段
+
+<开始新搜索轮次，目前已完成轮次数:1>
+
+----------------------------------------
+选择节点阶段
+
+----------------------------------------
+扩充阶段
+
+
+ ============================== reflection ============================== 
+step:  2
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+Step 1: To solve this problem, we need to determine the total number of pieces of popcorn that Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+基于以上步骤给出的意见:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+标准化后的意见: <continue>
+
+
+ ============================== proposal ============================== 
+step:  2
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+Step 1: To solve this problem, we need to determine the total number of pieces of popcorn that Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+基于以上步骤，可能的当前步骤解法是:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+标准化后新的步骤:Step 2: Number of kernels that popped in the next 30 seconds: 4 * 20 = 80 Number of kernels that popped in the final 30 seconds: 1/2 * 80 = 40 Number of kernels that popped from residual heat: 1/4 * 40 = 10 Total number of pieces of popcorn: 20 + 60 + 80 + 40 + 10 = 210 Therefore, Garrett has to eat 210 pieces of popcorn.
+
+
+ ============================== proposal ============================== 
+step:  2
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+Step 1: To solve this problem, we need to determine the total number of pieces of popcorn that Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+基于以上步骤，可能的当前步骤解法是:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+标准化后新的步骤:Step 2: Therefore, the answer is: 120
+
+
+ ============================== proposal ============================== 
+step:  2
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+Step 1: To solve this problem, we need to determine the total number of pieces of popcorn that Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+基于以上步骤，可能的当前步骤解法是:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+标准化后新的步骤:Step 2: The number of kernels that popped in the next 30 seconds is 3 times the number of kernels that popped in the first 30 seconds. The number of kernels that popped in the next 30 seconds is 3 * 20 = 60. The number of kernels that popped in the final 30 seconds is 1/2 the number of kernels that popped in the past 30 seconds. Therefore, the number of kernels that popped in the final 30 seconds is 1/2 * 60 = 30.
+
+1 ReST-MCTS/MCTS/task.py get_step_value, self.value_method:local
+1 ReST-MCTS/models/get_response.py get_value: local
+1 ReST-MCTS/models/value_models.py get_local_value: <class 'str'>
+1.5 ReST-MCTS/models/value_models.py get_local_value device: cuda
+2 ReST-MCTS/models/value_models.py get_local_value model.device: cuda:0
+获得评分:0
+
+1 ReST-MCTS/MCTS/task.py get_step_value, self.value_method:local
+1 ReST-MCTS/models/get_response.py get_value: local
+1 ReST-MCTS/models/value_models.py get_local_value: <class 'str'>
+1.5 ReST-MCTS/models/value_models.py get_local_value device: cuda
+2 ReST-MCTS/models/value_models.py get_local_value model.device: cuda:0
+获得评分:0
+
+1 ReST-MCTS/MCTS/task.py get_step_value, self.value_method:local
+1 ReST-MCTS/models/get_response.py get_value: local
+1 ReST-MCTS/models/value_models.py get_local_value: <class 'str'>
+1.5 ReST-MCTS/models/value_models.py get_local_value device: cuda
+2 ReST-MCTS/models/value_models.py get_local_value model.device: cuda:0
+获得评分:0
+
+----------------------------------------
+模拟搜索阶段
+
+此步问题已解决，不需要模拟。
+
+----------------------------------------
+反向传播阶段
+
+<开始新搜索轮次，目前已完成轮次数:2>
+
+----------------------------------------
+选择节点阶段
+
+----------------------------------------
+扩充阶段
+
+
+ ============================== proposal ============================== 
+step:  2
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+Step 1: To solve this problem, we need to determine the number of pieces of popcorn Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+基于以上步骤，可能的当前步骤解法是:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+标准化后新的步骤:Step 2: To determine the number of pieces of popcorn Garrett has to eat, we need to calculate the total number of kernels that popped in each time interval and then add up the results. In the first 30 seconds, 20 kernels popped. In the next 30 seconds, 60 kernels popped. In the next 30 seconds, 4 * 20 = 80 kernels popped. In the final 30 seconds, half the rate of the past 30 seconds means 60/2 = 30 kernels popped. A quarter of the number of kernels that popped in the final 30 seconds also popped from residual heat, so 30/4 = 7.5 kernels popped.   To find the total number of pieces of popcorn Garrett has to eat, we add up the number of kernels that popped in each time interval: 20 + 60 + 80 + 30 + 7.5 = 207.5.   Therefore, Garrett has to eat 207.5 pieces of
+
+
+ ============================== proposal ============================== 
+step:  2
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+Step 1: To solve this problem, we need to determine the number of pieces of popcorn Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+基于以上步骤，可能的当前步骤解法是:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+标准化后新的步骤:Step 2: We need to determine the number of pieces of popcorn Garrett has to eat.
+
+
+ ============================== proposal ============================== 
+step:  2
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+Step 1: To solve this problem, we need to determine the number of pieces of popcorn Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+基于以上步骤，可能的当前步骤解法是:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+标准化后新的步骤:Step 2: Let's analyze the problem: In the first 30 seconds, 20 kernels popped. In the next 30 seconds, 60 kernels popped. In the next 30 seconds, the popping rate is four times the initial rate, so 4 * 20 = 80 kernels popped. In the final 30 seconds, the popping rate is half the rate of the past 30 seconds, so 1/2 * 80 = 40 kernels popped.
+
+1 ReST-MCTS/MCTS/task.py get_step_value, self.value_method:local
+1 ReST-MCTS/models/get_response.py get_value: local
+1 ReST-MCTS/models/value_models.py get_local_value: <class 'str'>
+1.5 ReST-MCTS/models/value_models.py get_local_value device: cuda
+2 ReST-MCTS/models/value_models.py get_local_value model.device: cuda:0
+获得评分:1
+
+1 ReST-MCTS/MCTS/task.py get_step_value, self.value_method:local
+1 ReST-MCTS/models/get_response.py get_value: local
+1 ReST-MCTS/models/value_models.py get_local_value: <class 'str'>
+1.5 ReST-MCTS/models/value_models.py get_local_value device: cuda
+2 ReST-MCTS/models/value_models.py get_local_value model.device: cuda:0
+获得评分:tensor([[0.7027]], device='cuda:0', grad_fn=<AddmmBackward0>)
+
+1 ReST-MCTS/MCTS/task.py get_step_value, self.value_method:local
+1 ReST-MCTS/models/get_response.py get_value: local
+1 ReST-MCTS/models/value_models.py get_local_value: <class 'str'>
+1.5 ReST-MCTS/models/value_models.py get_local_value device: cuda
+2 ReST-MCTS/models/value_models.py get_local_value model.device: cuda:0
+获得评分:1
+
+----------------------------------------
+模拟搜索阶段
+
+
+ ============================== reflection ============================== 
+step:  3
+propose_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+Step 1: To solve this problem, we need to determine the number of pieces of popcorn Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+Step 2: To determine the number of pieces of popcorn Garrett has to eat, we need to calculate the total number of kernels that popped in each time interval and then add up the results. In the first 30 seconds, 20 kernels popped. In the next 30 seconds, 60 kernels popped. In the next 30 seconds, 4 * 20 = 80 kernels popped. In the final 30 seconds, half the rate of the past 30 seconds means 60/2 = 30 kernels popped. A quarter of the number of kernels that popped in the final 30 seconds also popped from residual heat, so 30/4 = 7.5 kernels popped.   To find the total number of pieces of popcorn Garrett has to eat, we add up the number of kernels that popped in each time interval: 20 + 60 + 80 + 30 + 7.5 = 207.5.   Therefore, Garrett has to eat 207.5 pieces of
+基于以上步骤给出的意见:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+标准化后的意见: <end>
+
+此步问题已解决，不需要模拟。
+
+----------------------------------------
+反向传播阶段
+
+<开始新搜索轮次，目前已完成轮次数:3>
+
+----------------------------------------
+选择节点阶段
+
+已找到解决方案！
+
+已找到最终解!
+Solution:Step 1: To solve this problem, we need to determine the number of pieces of popcorn Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+Step 2: Let's analyze the problem: In the first 30 seconds, 20 kernels popped. In the next 30 seconds, 60 kernels popped. In the next 30 seconds, the popping rate is four times the initial rate, so 4 * 20 = 80 kernels popped. In the final 30 seconds, the popping rate is half the rate of the past 30 seconds, so 1/2 * 80 = 40 kernels popped.
+
+
+
+ ============================== summary ============================== 
+
+summary_prompt: 
+ Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.
+已有步骤:
+Step 1: To solve this problem, we need to determine the number of pieces of popcorn Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60
+Step 2: Let's analyze the problem: In the first 30 seconds, 20 kernels popped. In the next 30 seconds, 60 kernels popped. In the next 30 seconds, the popping rate is four times the initial rate, so 4 * 20 = 80 kernels popped. In the final 30 seconds, the popping rate is half the rate of the past 30 seconds, so 1/2 * 80 = 40 kernels popped.
+基于以上步骤的综述为:
+
+get_proposal: mistral
+1 local_inference_model , inference_type:mistral
+获得综述:The final answer is 40.
+
+output:({'content': 'Garrett is popping popcorn for a snack. As the pan of kernels heats up, the kernels start popping faster. Twenty pop in the first 30 seconds of cooking, then three times that amount in the next 30 seconds. The kernels increase to four times the initial popping rate in the next thirty seconds, but in the final 30 seconds, the popping slows down to half the rate as the past 30 seconds. After Garrett takes the pan off the heat, a quarter of the number of kernels that popped in the final 30 seconds of cooking also pop from the residual heat. How many pieces of popcorn does Garrett have to eat.', 'solution': "Step 1: To solve this problem, we need to determine the number of pieces of popcorn Garrett has to eat. Let's break down the information given: Number of kernels that popped in the first 30 seconds: 20 Number of kernels that popped in the next 30 seconds: 3 * 20 = 60\nStep 2: Let's analyze the problem: In the first 30 seconds, 20 kernels popped. In the next 30 seconds, 60 kernels popped. In the next 30 seconds, the popping rate is four times the initial rate, so 4 * 20 = 80 kernels popped. In the final 30 seconds, the popping rate is half the rate of the past 30 seconds, so 1/2 * 80 = 40 kernels popped.\n", 'summary': 'The final answer is 40.', 'finish': 4, 'accurate': False, 'real_answer': None}, <MCTS.base.treeNode object at 0x7f48bb507eb0>)

@@ -370,7 +370,7 @@ class MCTS_Task(SearchTask):
     def get_step_value(self, y):
         if y in self.value_cache.keys():
             return self.value_cache[y]
-
+        print(f"1 ReST-MCTS/MCTS/task.py get_step_value, self.value_method:{self.value_method}")
         if self.value_method == 'local':
             if self.lang == 'zh':
                 prompt_answer = '问题:' + self.question + '\n步骤:\n' + '【答案】' + y

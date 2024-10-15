@@ -1,0 +1,13 @@
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  6.75it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  8.10it/s]
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:00<00:00,  6.75it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  7.85it/s]Loading checkpoint shards: 100%|██████████| 2/2 [00:00<00:00,  7.65it/s]
+api_key:sk-**
+
+------------------------------ 开始测试 ------------------------------ 
+
+Traceback (most recent call last):
+  File "/home/xiaoxiang/mcts/ReST-MCTS/evaluate.py", line 124, in <module>
+    run(args)
+  File "/home/xiaoxiang/mcts/ReST-MCTS/evaluate.py", line 22, in run
+    assert data_len > 0, "Data list is empty!\n"
+AssertionError: Data list is empty!
+

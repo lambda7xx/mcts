@@ -9,11 +9,11 @@ from transformers import AutoModel, AutoTokenizer
 
 # openai api settings
 API_KEY = 'sk-**'
-API_BASE = 'base'
+API_BASE = ''
 BASE_MODEL_GPT = "gpt-3.5-turbo"
 
 # GLM api settings
-URL = "https://api.chatglm.cn/v1/chat/completions"
+URL = "http://localhost:8000/v1"
 ID = "**"
 AUTH = '**'
 CONTENT_TYPE = 'application/json; charset=utf-8'
@@ -21,19 +21,20 @@ BASE_MODEL_GLM = 'GLM4'
 
 # local model settings
 # if you want to use local models, set these two directories
-
-INFERENCE_MODEL_DIR = None
+#/home/xiaoxiang/data/Llama-2-13b-hf
+INFERENCE_MODEL_DIR = "/home/xiaoxiang/data/MetaMath-Mistral-7B"
 LOCAL_INFERENCE_TYPES = ['glm', 'llama', 'mistral']
-LOCAL_INFERENCE_IDX = 0
+LOCAL_INFERENCE_IDX = 2
 
-VALUE_BASE_MODEL_DIR = None
+VALUE_BASE_MODEL_DIR = "/home/xiaoxiang/data/MetaMath-Mistral-7B"
 VALUE_MODEL_STATE_DICT = None
 LOCAL_VALUE_TYPES = ['glm', 'mistral']
-LOCAL_VALUE_IDX = 0
+LOCAL_VALUE_IDX = 1
 USE_PRM = False
 
-INFERENCE_LOCAL = False
-VALUE_LOCAL = False
+INFERENCE_LOCAL =True
+
+VALUE_LOCAL = True
 
 # implement the inference model
 if INFERENCE_MODEL_DIR is not None:
@@ -75,40 +76,40 @@ if api_base != "":
     openai.api_base = api_base
 
 
-@backoff.on_exception(backoff.expo, openai.error.OpenAIError)
-def completions_with_backoff(**kwargs):
-    return openai.ChatCompletion.create(**kwargs)
+# @backoff.on_exception(backoff.expo, openai.error.OpenAIError)
+# def completions_with_backoff(**kwargs):
+#     return openai.ChatCompletion.create(**kwargs)
 
 
-def gpt(prompt, model=BASE_MODEL_GPT, temperature=0.7, max_tokens=1000, n=1, stop=None) -> list:
-    messages = [{"role": "user", "content": prompt}]
-    out = []
-    cnt = 5
-    while cnt:
-        try:
-            out = chatgpt(messages, model=model, temperature=temperature, max_tokens=max_tokens, n=n, stop=stop)[
-                0].split('\n')
-            break
-        except Exception as e:
-            print(f"Error occurred when getting gpt reply!\nError type:{e}\n")
-            cnt -= 1
-    return out
+# def gpt(prompt, model=BASE_MODEL_GPT, temperature=0.7, max_tokens=1000, n=1, stop=None) -> list:
+#     messages = [{"role": "user", "content": prompt}]
+#     out = []
+#     cnt = 5
+#     while cnt:
+#         try:
+#             out = chatgpt(messages, model=model, temperature=temperature, max_tokens=max_tokens, n=n, stop=stop)[
+#                 0].split('\n')
+#             break
+#         except Exception as e:
+#             print(f"Error occurred when getting gpt reply!\nError type:{e}\n")
+#             cnt -= 1
+#     return out
 
 
-def chatgpt(messages, model=BASE_MODEL_GPT, temperature=0.7, max_tokens=1000, n=1, stop=None) -> list:
-    global completion_tokens, prompt_tokens
-    outputs = []
-    while n > 0:
-        cnt = min(n, 20)
-        n -= cnt
-        res = completions_with_backoff(model=model, messages=messages, temperature=temperature, max_tokens=max_tokens,
-                                       n=cnt, stop=stop)
-        # print(f'得到GPT回复:{res}\n\n')
-        outputs.extend([choice["message"]["content"] for choice in res["choices"]])
-        # log completion tokens
-        completion_tokens += res["usage"]["completion_tokens"]
-        prompt_tokens += res["usage"]["prompt_tokens"]
-    return outputs
+# def chatgpt(messages, model=BASE_MODEL_GPT, temperature=0.7, max_tokens=1000, n=1, stop=None) -> list:
+#     global completion_tokens, prompt_tokens
+#     outputs = []
+#     while n > 0:
+#         cnt = min(n, 20)
+#         n -= cnt
+#         res = completions_with_backoff(model=model, messages=messages, temperature=temperature, max_tokens=max_tokens,
+#                                        n=cnt, stop=stop)
+#         # print(f'得到GPT回复:{res}\n\n')
+#         outputs.extend([choice["message"]["content"] for choice in res["choices"]])
+#         # log completion tokens
+#         completion_tokens += res["usage"]["completion_tokens"]
+#         prompt_tokens += res["usage"]["prompt_tokens"]
+#     return outputs
 
 
 def gpt_usage(backend=BASE_MODEL_GPT):
@@ -257,6 +258,7 @@ def get_glm_reply(query, model, temperature=0.7, max_tokens=1000, seed=175):
 def local_inference_model(query, max_length=2048, truncation=True, do_sample=False, max_new_tokens=1024,
                           temperature=0.7):
     assert INFERENCE_LOCAL, "Inference model not implemented!\n"
+    print(f"1 local_inference_model , inference_type:{inference_type}")
     if inference_type == 'glm':
         return get_local_response(query, inference_model, inference_tokenizer, max_length=max_length,
                                   truncation=truncation,
